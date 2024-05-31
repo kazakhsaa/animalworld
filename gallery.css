@@ -1,0 +1,130 @@
+/* Gallery base styles */
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  /* Improved gallery content layout with more responsive handling */
+  .gallery-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px; /* Limit max width for better layout on large screens */
+  }
+  
+  /* Art piece and image enhancements */
+  .art-piece img {
+    max-width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: zoom-in;
+    border-radius: 10px; /* Soften edges */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  }
+  
+  .art-piece:hover img {
+    transform: scale(1.03); /* Slightly larger scale for emphasis */
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+  }
+  
+  /* Modal styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Adjust to only scroll vertically */
+    background-color: rgba(0, 0, 0, 0.8); /* Darker backdrop for better focus */
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Ensure some padding */
+  }
+  
+  /* Improved modal content appearance */
+  .modal-content {
+    position: relative;
+    margin: auto;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.6); /* Deeper shadow for more depth */
+    width: auto;
+    max-width: 90%; /* Improved responsiveness */
+    background: #000;
+    border-radius: 15px; /* Rounded corners for modern look */
+    overflow: hidden; /* Ensure no overflow from children */
+    animation: modalFadeIn 0.5s ease-out forwards; /* Fade-in animation */
+  }
+  
+  /* Fade-in animation for modal */
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Enhanced zoom control appearance */
+  .zoom-control {
+    -webkit-appearance: none;
+    margin: 10px 0; /* Spacing above and below */
+    width: 90%; /* Do not stretch to full width */
+    height: 10px;
+    border-radius: 5px;
+    background: #444; /* Darker for better contrast */
+    outline: none;
+    opacity: 0.9; /* Less transparency */
+    transition: opacity .2s;
+  }
+  
+  .zoom-control:hover,
+  .zoom-control:focus {
+    opacity: 1; /* Full opacity on focus/hover for visibility */
+  }
+  
+  .zoom-control::-webkit-slider-thumb {
+    border: 1px solid #aaa; /* Add border for better visibility */
+  }
+  
+  .zoom-control::-moz-range-thumb {
+    border: 1px solid #aaa;
+  }
+  
+  .close-modal {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #fff; /* Ensure visibility against dark modal background */
+  }
+  
+  .modal-image-container {
+    width: 100%; /* Ensures container spans the width of the modal */
+    max-height: 80vh; /* Limits the image height to ensure it doesn't take up the whole page */
+    display: flex; /* Utilizes flexbox for centering */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    overflow: hidden; /* Ensures image scaling does not overflow the container */
+    background-color: #000; /* Optional: in case the image doesn't cover the whole area, this matches the modal background */
+    border-radius: 10px; /* Matches the modal's rounded corners */
+    margin: 20px; /* Provides space around the image */
+  }
+  
+  .zoomable-image {
+    max-width: 100%; /* Limits the image width to prevent overflow */
+    max-height: 100%; /* Ensures the image's maximum height is contained within the viewport */
+    object-fit: contain; /* Ensures the image's aspect ratio is maintained without being cropped */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+  }
+  

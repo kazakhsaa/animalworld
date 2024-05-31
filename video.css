@@ -1,0 +1,19 @@
+.outer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.wrapper {
+  width: 560px; /* Ширина видео */
+  height: 315px; /* Высота видео */
+  position: relative;
+  overflow: hidden;
+}
+.h_iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
